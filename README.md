@@ -1,9 +1,10 @@
 # MIReAD
 <img src="images/tsne.png" align="right" width="230">
 MIReAD is a transformer-based model that extracts high-quality representations from scientific papers using solely abstract and title. Such representations are suitable for similar papers retrieval, topic categorization and recommender system usage.
-<br>
-<br>
+
+
 **✨ MIReAD is accepted to ACL 2023 ✨**
+
 
 "***MIReAD: simple method for learning high-quality representations from scientific documents***" by Anastasia Razdaibiedina and Alexander Brechalov.
 
