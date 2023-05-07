@@ -44,12 +44,22 @@ out = model.bert(**inputs)
 representation = out.last_hidden_state[:, 0, :]
 ```
 
-A sample script to run the model in batch mode on a dataset of papers is provided under `scripts/embed_papers_hf.py`
+## Loading training data
 
-How to use:
+MIReAD was trained on a collection of >0.5 million PubMed and arXiv abstracts & titles. Out dataset is available through 🤗 HuggingFace Datasets: [https://huggingface.co/datasets/brainchalov/pubmed_arxiv_abstracts_data](https://huggingface.co/datasets/brainchalov/pubmed_arxiv_abstracts_data).
+
+Requirement: `pip install --upgrade datasets==2.11`
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("brainchalov/pubmed_arxiv_abstracts_data")
+
+print('Num samples: ', dataset['train'].num_rows)
+# should output 500,335
+
+print('Dataset fields: ', dataset['train'].features.keys())
+# should output ['abstr', 'title', 'journal', 'field', 'label_journal', 'label_field']
 ```
-CUDA_VISIBLE_DEVICES=0 python scripts/embed_papers_hf.py \
---data-path path/to/paper-metadata.json \
---output path/to/write/output.json \
---batch-size 8
-```
+
+<!-- ## MIReAD code & evaluation scripts -->
