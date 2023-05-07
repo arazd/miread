@@ -1,5 +1,5 @@
 # MIReAD
-A simple method for learning high-quality representations from scientific documents.
+"MIReAD: simple method for learning high-quality representations from scientific documents." by Anastasia Razdaibiedina and Alexander Brechalov.
 
 **✨ MIReAD is accepted to ACL 2023 ✨**
 
@@ -9,11 +9,9 @@ This repository contains:
 * link to the training data
 * instructions to use MIReAD
 
-# Loading pretrained model
+## Loading pretrained model
 
-## 1) via Huggingface Transformers Library
-
-MIReAD weights are available through 🤗 transformers: [https://huggingface.co/arazd/MIReAD](https://huggingface.co/arazd/MIReAD).
+MIReAD weights are available through 🤗 huggingface Transformers: [https://huggingface.co/arazd/MIReAD](https://huggingface.co/arazd/MIReAD).
 
 Requirement: `pip install --upgrade transformers==4.2`
 
@@ -23,7 +21,10 @@ from transformers import AutoTokenizer, AutoModel
 # load model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained('arazd/miread')
 model = AutoModel.from_pretrained('arazd/miread')
+```
 
+Extracting embeddings and journal prediction:
+```python
 # concatenate title & abstract
 title = 'MIReAD: simple method for learning scientific representations'
 abstr = 'Learning semantically meaningful representations from scientific documents can ...'
